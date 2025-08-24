@@ -27,7 +27,7 @@ def send_webhook():
 
 @app.route("/")
 def home():
-    return "✅ Bot is running and sending webhooks!"
+    return "✅ Bot is running "
 
 # Start webhook loop in background
 threading.Thread(target=send_webhook, daemon=True).start()
