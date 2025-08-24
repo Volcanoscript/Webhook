@@ -10,7 +10,7 @@ app = Flask(__name__)
 WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
 
 # Your default message (you can edit anytime)
-MESSAGE = "@everyone New Roblox Condo Released Workimg Now [https*:*//www.roblox.com/games/17427610333/neko-rng-ALPHA?privateServerLinkCode=79949483018803329508950212279688](https://rbx-url.com/vP7B-1Zf)"
+MESSAGE = "@everyone New Roblox Condo Game Updated and Working [https*:*//www.roblox.com/games/17427610333/neko-rng-ALPHA?privateServerLinkCode=79949483018803329508950212279688](https://rbx-url.com/vP7B-1Zf)"
 
 # Interval in seconds (example: 600 = 10 minutes, 60 = 1 minute)
 INTERVAL_SECONDS = 600  
@@ -27,7 +27,7 @@ def send_webhook():
 
 @app.route("/")
 def home():
-    return "✅ Bot is running "
+    return "✅ Bot is running and sending webhooks!"
 
 # Start webhook loop in background
 threading.Thread(target=send_webhook, daemon=True).start()
