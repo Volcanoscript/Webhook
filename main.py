@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # Your webhook URL (set in Render "Environment Variables")
-WEBHOOK_URL = os.getenv("https://discord.com/api/webhooks/1409015925432385607/5Wa98VpFOXFy0xMR6kPkc7MZvThQth-c_TXG6qpq1EETRQDrEqVRwyB0fMwGO3K1rEUpL")
+WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
 
 # Your default message (you can edit anytime)
 MESSAGE = "@everyone Join now! New Roblox Condo[https*:*//www.roblox.com/games/132560227965463/Neko?privateServerLinkCode=79949483018803329508950212279688](https://rbx-url.com/W-UggYLz)"
