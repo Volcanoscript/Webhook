@@ -1,28 +1,36 @@
-import os
-import requests
+from flask import Flask
+import threading
 import time
+import requests
+import os
 
-# Webhook is stored securely in Render environment variable
-WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
+app = Flask(__name__)
 
-# 🔥 Your message goes here 🔥
+# Your webhook URL (set in Render "Environment Variables")
+WEBHOOK_URL = os.getenv("https://discord.com/api/webhooks/1409015925432385607/5Wa98VpFOXFy0xMR6kPkc7MZvThQth-c_TXG6qpq1EETRQDrEqVRwyB0fMwGO3K1rEUpL")
+
+# Your default message (you can edit anytime)
 MESSAGE = "@everyone Join now! New Roblox Condo[https*:*//www.roblox.com/games/132560227965463/Neko?privateServerLinkCode=79949483018803329508950212279688](https://rbx-url.com/W-UggYLz)"
 
-# Send every 10 minute (60 seconds)
-INTERVAL_SECONDS = 600
+# Interval in seconds (example: 600 = 10 minutes, 60 = 1 minute)
+INTERVAL_SECONDS = 600  
 
 def send_webhook():
-    if not WEBHOOK_URL:
-        print("❌ ERROR: DISCORD_WEBHOOK_URL not set in environment!")
-        return
-    payload = {
-        "content": MESSAGE,
-        "allowed_mentions": {"parse": ["everyone"]}
-    }
-    r = requests.post(WEBHOOK_URL, json=payload, timeout=10)
-    print("Status:", r.status_code, "| Response:", r.text)
+    while True:
+        try:
+            payload = {"content": MESSAGE, "allowed_mentions": {"parse": ["everyone"]}}
+            r = requests.post(WEBHOOK_URL, json=payload, timeout=10)
+            print("Status:", r.status_code, "| Response:", r.text)
+        except Exception as e:
+            print("❌ Error:", e)
+        time.sleep(INTERVAL_SECONDS)
+
+@app.route("/")
+def home():
+    return "✅ Bot is running and sending webhooks!"
+
+# Start webhook loop in background
+threading.Thread(target=send_webhook, daemon=True).start()
 
 if __name__ == "__main__":
-    while True:
-        send_webhook()
-        time.sleep(INTERVAL_SECONDS)
+    app.run(host="0.0.0.0", port=10000)
