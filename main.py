@@ -8,8 +8,8 @@ WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
 # 🔥 Your message goes here 🔥
 MESSAGE = "@everyone Join now! New Roblox Condo[https*:*//www.roblox.com/games/132560227965463/Neko?privateServerLinkCode=79949483018803329508950212279688](https://rbx-url.com/W-UggYLz)"
 
-# Send every 1 minute (60 seconds)
-INTERVAL_SECONDS = 60
+# Send every 10 minute (60 seconds)
+INTERVAL_SECONDS = 600
 
 def send_webhook():
     if not WEBHOOK_URL:
