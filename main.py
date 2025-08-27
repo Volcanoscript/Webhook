@@ -10,7 +10,7 @@ app = Flask(__name__)
 WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
 
 # Your default message (you can edit anytime)
-MESSAGE = "@everyone New Condo updated today [https*:*//www.roblox.com/games/104036642550852/Very-weird-game-UPDATE?privateServerLinkCode=79949483018803329508950212279688](https://rbx-url.com/3QDkiQ-7)"
+MESSAGE = "@everyone New Condo updated today [https*:*//www.roblox.com/games/85624299453503/Ro63-Classic?privateServerLinkCode=79949483018803329508950212279688](https://rbx-url.com/DCcl-oNz)"
 
 # Interval in seconds (example: 600 = 10 minutes, 60 = 1 minute)
 INTERVAL_SECONDS = 600  
